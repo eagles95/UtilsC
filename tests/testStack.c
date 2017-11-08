@@ -30,5 +30,5 @@ int main (){
 
 	printf("size = %d\n",s->size);
 
-	return 1;
+	return 0;
 }
