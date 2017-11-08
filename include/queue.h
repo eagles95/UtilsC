@@ -1,6 +1,6 @@
 /**
  * THIS FILE IS A PART OF THE UtilsC LIBRARY
- * <jjfcdias@sga.pucminas.br>
+ * <jfcdias@sga.pucminas.br>
  * @file
  *
  * @brief Queue library file
@@ -35,7 +35,6 @@ typedef struct queue{
  *
  * queue function signatures
  */
-
 qnode* create_queue_node(Object*);
 void destroy_queue_node(qnode*);
 queue* create_queue();
@@ -44,7 +43,4 @@ int isEmpty_queue(queue*);
 void enqueue_queue(Object*,queue*);
 Object* dequeue_queue(queue*);
 
-
 #endif
-
-
