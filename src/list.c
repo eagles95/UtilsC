@@ -285,34 +285,3 @@ Object* remove_after_list(Object* obj,list* l){
 
 	return(ret);
 }
-
-
-void print_list(list* l){
-	int i;
-	lnode* node = &l->head;
-	for(i=0;i<l->size && node->next != NULL;i++){
-		node = node->next;
-		printf("%d = %d\n",i,node->obj->key);
-	}
-	printf("size = %d\n",l->size);
-}
-
-int main(){
-	list* l = create_list();
-	Object* a = malloc(sizeof(Object));
-	a->key = 0;
-	Object* b = malloc(sizeof(Object));
-	b->key = 1;
-    Object* c = malloc(sizeof(Object));
-	c->key = 2;
-    Object* d = malloc(sizeof(Object));
-	d->key = 3;
-	Object* i = malloc(sizeof(Object));
-	i->key = 4;
-	insert_begin_list(a,l);
-	insert_after_list(b,a,l);
-	insert_after_list(c,b,l);
-	insert_after_list(d,c,l);
-	insert_after_list(i,d,l);
-	print_list(l);
-}
