@@ -285,3 +285,37 @@ Object* remove_after_list(Object* obj,list* l){
 
 	return(ret);
 }
+
+Object* remove_key_list(list* l, int key){
+	//check
+	assert(l != NULL);
+	assert(l->size > 0);
+
+	lnode* node;
+	lnode* aux;
+	Object* ret = NULL;
+
+	//iterate until key gets found
+	for(node = &l->head; node->next != NULL;node = node->next){
+		if(node->next->key == key){
+			//extract obj
+			aux = node->next;
+			ret = aux->obj;
+
+			//unlink node
+			node->next = aux->next;
+			destroy_list_node(aux);
+			l->size--;
+
+			break;
+		}
+	}
+
+	return(ret);
+}
+
+
+
+
+
+
