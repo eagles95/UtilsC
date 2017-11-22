@@ -27,9 +27,9 @@ typedef struct hash{
  * hash function signatures
  */
 hash* create_hash(int);
-void destroy_hash();
+void destroy_hash(hash*);
 void insert_hash(Object*,hash*);
-Object* remove_hash(int,hash*);
-Object* get_hash(int,hash*);
+Object* remove_hash(hash*,int);
+Object* get_hash(hash*,int);
 
 #endif

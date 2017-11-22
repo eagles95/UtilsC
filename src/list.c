@@ -286,7 +286,17 @@ Object* remove_after_list(Object* obj,list* l){
 	return(ret);
 }
 
-Object* remove_key_list(list* l, int key){
+/**
+ * @brief Remove Object with key = @param key.
+ *
+ * @param key Key to be found.
+ *
+ * @param l Pointer to list.
+ *
+ * @return Object* pointer to removed Object,NULL if @param key was not found in list.
+ *
+ */
+Object* remove_by_key_list(list* l, int key){
 	//check
 	assert(l != NULL);
 	assert(l->size > 0);
@@ -297,7 +307,7 @@ Object* remove_key_list(list* l, int key){
 
 	//iterate until key gets found
 	for(node = &l->head; node->next != NULL;node = node->next){
-		if(node->next->key == key){
+		if(node->next->obj->key == key){
 			//extract obj
 			aux = node->next;
 			ret = aux->obj;
@@ -315,6 +325,33 @@ Object* remove_key_list(list* l, int key){
 }
 
 
+/**
+ * @brief Gets First Object with key = @param key.
+ *
+ * @param key key to be found.
+ *
+ * @param l Pointer to list.
+ *
+ * @return Object* pointer to removed Object,NULL if @param key was not found in list.
+ *
+ */
+Object* get_by_key_list(list* l, int key){
+	//check
+	assert(l != NULL);
+
+	Object* ret = NULL;
+	lnode* node;
+
+	//iterate until key gets found
+	for(node = &l->head; node->next != NULL; node = node->next){
+		if(node->next->obj->key == key){
+			ret = node->next->obj;
+			break;
+		}
+	}
+
+	return(ret);
+}
 
 
 

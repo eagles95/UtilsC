@@ -46,5 +46,7 @@ void insert_after_list(Object*,Object*,list*);
 Object* remove_begin_list(list*);
 Object* remove_end_list(list*);
 Object* remove_after_list(Object*,list*);
+Object* remove_by_key_list(list*,int);
+Object* get_by_key_list(list*,int);
 
 #endif

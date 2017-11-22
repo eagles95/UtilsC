@@ -12,10 +12,31 @@
 #include<stdlib.h>
 #include<hash.h>
 
+
+
+/**
+ * @brief Hashing function implementation.
+ *
+ * @param h Pointer to hash.
+ *
+ * @param key Key to be hashed.
+ *
+ * @return key mod @param h size.
+ *
+ */
 static int hash_function(hash* h,int key){
 	return(key%h->size);
 }
 
+
+/**
+ * @brief Create new hash.
+ *
+ * @param size Size of new hash.
+ *
+ * @return pointer to new hash.
+ *
+ */
 hash* create_hash(int size){
 	hash* h;
 
@@ -35,6 +56,13 @@ hash* create_hash(int size){
 	return(h);	
 }
 
+
+/**
+ * @brief Delete hash.
+ *
+ * @param h Pointer to deleted hash.
+ *
+ */
 void destroy_hash(hash* h){
 	//check
 	assert(h != NULL);
@@ -47,29 +75,64 @@ void destroy_hash(hash* h){
 	free(h);
 }
 
-void insert_hash(Object* obj, hash* h, int key){
+/**
+ * @brief Insert object in hash.
+ *
+ * @param obj Pointer to inserted object.
+ *
+ * @param h Pointer to hash to insert on.
+ *
+ */
+void insert_hash(Object* obj, hash* h){
 	//check
 	assert(obj != NULL);
 	assert(h != NULL);
 	
 	//get index for hash
-	int index = hash_function(h,key);
+	int index = hash_function(h,obj->key);
 	
 	//insert on begin of list in index
 	insert_begin_list(obj,h->table[index]);
 }
 
 
-Object* remove_hash(hash* h, int key){
-	
+/**
+ * @brief Remove Object from Hash by key value.
+ *
+ * @param h Pointer to hash.
+ *
+ * @param key Key to be found.
+ *
+ * @return Pointer Object removed from hash.
+ *
+ */
+Object* remove_hash(hash* h,int key){
 	//check
 	assert(h != NULL);
 
 	//get index for hash
 	int index = hash_function(h,key);
 
-	return (remove_key_list(h->table[index],key));
+	return(remove_by_key_list(h->table[index],key));
 }
 
-Object* get_hash(int,hash*);
 
+/**
+ * @brief Get object by key.
+ *
+ * @param h Pointer to hash.
+ *
+ * @param key Key to be found.
+ *
+ * @return Pointer to Object found.
+ *
+ */
+Object* get_hash(hash* h, int key){
+	//check
+	assert(h != NULL);
+	
+	//get index of hash
+	int index = hash_function(h,key);
+
+	return(get_by_key_list(h->table[index],key));
+}
