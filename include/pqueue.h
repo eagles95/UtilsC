@@ -6,8 +6,8 @@
  * @brief Priority Queue library file
  */
 
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef PQUEUE_H
+#define PQUEUE_H
 
 #include<object.h>
 
