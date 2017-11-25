@@ -5,7 +5,7 @@ This implementation is completely modular, change `include/object.h` to suit you
 All comparison between objects are done on the Compare method in `src/object.c`
 # Usage
 With no installation: <br />
-`gcc -I pathToUtilsC/Include/ pathToUtilsC/*.c yourcode.c`<br />
+`gcc -I pathToUtilsC/include/ pathToUtilsC/*.c yourcode.c`<br />
 You can install with:<br />
 `sudo make install`<br />
 and compile your files with the `-lutilsc` gcc flag <br />
