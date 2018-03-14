@@ -1,6 +1,6 @@
 /**
  * THIS FILE IS A PART OF THE UtilsC LIBRARY
- * <jfcdias@sga.pucminas.br>
+ * <xxxx@xxxx>
  * @file
  *
  * @brief Object library file
